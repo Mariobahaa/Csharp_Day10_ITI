@@ -24,7 +24,7 @@ namespace Problem1
             }
             Console.WriteLine("\n");
 
-            //2- Products out of stock and cost more than 3 per unit
+            //2- Products in of stock and cost more than 3 per unit
             res = ProductList.Where(P => P.UnitsInStock > 0 && P.UnitPrice>3.00m);
             Console.WriteLine("2- Products out of stock and cost more than 3 per unit");
             foreach (var p in res)
@@ -55,7 +55,7 @@ namespace Problem1
 
             first = ProductList.FirstOrDefault(P => P.UnitPrice >1000);
             Console.WriteLine("2- first product whose Price > 1000");
-            if (first == null) Console.WriteLine("Not Found");
+            if (first == null) Console.WriteLine("NULL");
             else Console.WriteLine($"{first}");
             Console.WriteLine("\n");
 
@@ -68,9 +68,9 @@ namespace Problem1
 
             /*-------------------------------------------------------------------*/
             Console.WriteLine("LINQ - Partitioning Operators");
-            //1- 3 orders from customers in Washington
-            var cw = CustomerList.Where(C => C.City == "Washington").Take(3);
-            Console.WriteLine("1- 3 orders from customers in Washington");
+            //1- 3 orders from customers in London
+            var cw = CustomerList.Where(C => C.City == "London").Take(3);
+            Console.WriteLine("1- 3 orders from customers in London");
             foreach (var c in cw)
             {
                 Console.WriteLine($"{c}");
@@ -78,7 +78,7 @@ namespace Problem1
             Console.WriteLine("\n");
 
             //2- all but the first 2 orders from customers in Washington
-            cw = CustomerList.Where(C => C.City == "Washington").Skip(2);
+            cw = CustomerList.Where(C => C.City == "London").Skip(2);
             Console.WriteLine("2- all but the first 2 orders from customers in Washington");
             foreach (var c in cw)
             {
