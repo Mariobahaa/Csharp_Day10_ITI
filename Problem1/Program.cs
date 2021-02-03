@@ -25,7 +25,7 @@ namespace Problem1
             Console.WriteLine("\n");
 
             //2- Products in of stock and cost more than 3 per unit
-            res = ProductList.Where(P => P.UnitsInStock > 0 && P.UnitPrice>3.00m);
+            res = ProductList.Where(P => P.UnitsInStock > 0 && P.UnitPrice > 3.00m);
             Console.WriteLine("2- Products out of stock and cost more than 3 per unit");
             foreach (var p in res)
             {
@@ -34,10 +34,10 @@ namespace Problem1
             Console.WriteLine("\n");
 
             //3- Names of digits whose name is shorter than their values
-            string[] Arr = 
+            string[] Arr =
             { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-            var dig = Arr.Where((D,i)=> D.Length <i);
+            var dig = Arr.Where((D, i) => D.Length < i);
             Console.WriteLine("3- Names of digits whose name is shorter than their values");
             foreach (var d in dig)
             {
@@ -53,7 +53,7 @@ namespace Problem1
             Console.WriteLine($"{first}");
             Console.WriteLine("\n");
 
-            first = ProductList.FirstOrDefault(P => P.UnitPrice >1000);
+            first = ProductList.FirstOrDefault(P => P.UnitPrice > 1000);
             Console.WriteLine("2- first product whose Price > 1000");
             if (first == null) Console.WriteLine("NULL");
             else Console.WriteLine($"{first}");
@@ -90,7 +90,7 @@ namespace Problem1
             //of the array until a number is hit that is less than its position in the array.
 
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-            var nums = numbers.TakeWhile((N,i) => N>=i);
+            var nums = numbers.TakeWhile((N, i) => N >= i);
             Console.WriteLine("3-numbers until a number is hit that is less than its position in the array");
             foreach (var n in nums)
             {
@@ -102,7 +102,7 @@ namespace Problem1
             //4- elements of the array starting from the first element divisible by 3.
 
 
-            nums = numbers.SkipWhile(N => N%3!=0);
+            nums = numbers.SkipWhile(N => N % 3 != 0);
             Console.WriteLine("4- elements of the array starting from the first element divisible by 3");
             foreach (var n in nums)
             {
@@ -114,7 +114,7 @@ namespace Problem1
             //5- elements of the array starting from the first element less than its position.
 
 
-            nums = numbers.SkipWhile((N,i) => N>=i);
+            nums = numbers.SkipWhile((N, i) => N >= i);
             Console.WriteLine("5- elements of the array starting from the first element less than its position.");
             foreach (var n in nums)
             {
@@ -171,6 +171,38 @@ namespace Problem1
                 Console.WriteLine($"{item}");
 
             Console.WriteLine("\n");
+
+            //LINQ - Aggregate Operators
+            Console.WriteLine("LINQ - Aggregate Operators");
+            //1
+            int[] Arr3 = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            var oddcnt = Arr3.Count(N => N % 2 != 1);
+            Console.WriteLine(oddcnt);
+            Console.WriteLine("\n");
+
+            //2
+            var custord = CustomerList.Select(C => new { customer = C, orders = C.Orders.Count() });
+
+            foreach (var item in custord)
+                Console.WriteLine($"{item}");
+
+            Console.WriteLine("\n");
+
+            //3 
+            var catg = ProductList.GroupBy(P => P.Category);
+            var cnt = catg.Select(C => new { category = C.Key, count = C.Count() }) ;
+            foreach (var item in cnt)
+                Console.WriteLine($"{item}");
+
+            Console.WriteLine("\n");
+
+            //4
+            int[] Arr4 = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            var sm = Arr4.Sum();
+            Console.WriteLine($"{sm}");
+            Console.WriteLine("\n");
+
+
         }
 
 
