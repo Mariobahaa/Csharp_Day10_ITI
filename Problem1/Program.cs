@@ -122,7 +122,55 @@ namespace Problem1
             }
             Console.WriteLine("\n");
 
+            /*-------------------------------------------------------------------*/
 
+            Console.WriteLine("LINQ - Set Operators");
+
+            //1
+            var catnms = ProductList.Select(P => P.Category).Distinct();
+            foreach (var item in catnms)
+                Console.WriteLine($"{item}");
+
+            Console.WriteLine("\n");
+
+            //2
+            var prodf = ProductList.Select(P => P.Category[0]);
+            var custf = CustomerList.Select(C => C.CustomerID[0]);
+            var firsts = prodf.Union(custf);
+
+            foreach (var item in firsts)
+                Console.WriteLine($"{item}");
+
+            Console.WriteLine("\n");
+
+            //3 
+            firsts = custf.Intersect(prodf);
+
+            foreach (var item in firsts)
+                Console.WriteLine($"{item}");
+
+            Console.WriteLine("\n");
+
+            //4
+            firsts = prodf.Except(custf);
+
+            foreach (var item in firsts)
+                Console.WriteLine($"{item}");
+
+            Console.WriteLine("\n");
+
+            //5
+            var prodlst = ProductList.
+                Select(P => (P.ProductName.Substring(P.ProductName.Length - 3)));
+            var custlst = CustomerList
+                .Select(C => ((C.CustomerID.Substring(C.CustomerID.Length - 3))));
+
+            var threes = prodlst.Concat(custlst);
+
+            foreach (var item in threes)
+                Console.WriteLine($"{item}");
+
+            Console.WriteLine("\n");
         }
 
 
