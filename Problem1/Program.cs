@@ -317,6 +317,10 @@ namespace Problem1
 
             //2
             var gfrstlet = dict_en.GroupBy(W => W[0]);
+
+
+            ///////////UNCOMMENT This Section //////////////////////////////////
+            
             foreach (var c in gfrstlet)
             {
                 foreach (var i in c)
@@ -324,6 +328,7 @@ namespace Problem1
                 Console.WriteLine("######");
             }
             Console.WriteLine("\n");
+            
 
             //3
             string[] Arr5 = { "from   ", " salt", " earn ", "  last   ", " near ", " form  " };
@@ -336,6 +341,95 @@ namespace Problem1
                 foreach (var i in c)
                     Console.WriteLine(i);
                 Console.WriteLine("######");
+            }
+            Console.WriteLine("\n");
+
+            //LINQ - Ordering Operators
+            Console.WriteLine("LINQ - Ordering Operators");
+
+            //1
+            var srtprods = ProductList.OrderBy(P => P.ProductName);
+            foreach (var c in srtprods)
+            {
+                Console.WriteLine(c);
+               
+            }
+            Console.WriteLine("\n");
+
+            //2
+            string[] Arr6 = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+
+            CaseInsensetiveComparer CIC = new CaseInsensetiveComparer();
+            var srtwords = Arr6.OrderBy(W=> W, CIC);
+            foreach (var c in srtwords)
+            {
+                Console.WriteLine(c);
+
+            }
+            Console.WriteLine("\n");
+
+            //3
+            var srtpByunits = ProductList.OrderByDescending(P => P.UnitsInStock);
+            foreach (var c in srtpByunits)
+            {
+                Console.WriteLine(c);
+
+            }
+            Console.WriteLine("\n");
+
+            //4
+            string[] Arr7 = { "zero", "one", "two", "three", "four",
+                              "five", "six", "seven", "eight", "nine" };
+
+            var srtdigits = Arr7.OrderBy(D => D.Count()).ThenBy(D => D);
+
+            foreach (var c in srtdigits)
+            {
+                Console.WriteLine(c);
+
+            }
+            Console.WriteLine("\n");
+
+            //5
+            string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+
+            var srtwordsBylenCI = words.OrderBy(W => W.Count()).ThenBy(W=> W, CIC);
+
+            foreach (var c in srtwordsBylenCI)
+            {
+                Console.WriteLine(c);
+
+            }
+            Console.WriteLine("\n");
+
+            //6
+
+            var srtpBCatPrice = ProductList.OrderBy(P=>P.Category).ThenByDescending(P => P.UnitPrice);
+            foreach (var c in srtpBCatPrice)
+            {
+                Console.WriteLine(c);
+
+            }
+            Console.WriteLine("\n");
+
+            //7
+            var srtwordsByLenCI = words.OrderBy(D => D.Count()).ThenByDescending(D => D, CIC);
+
+            foreach (var c in srtwordsByLenCI)
+            {
+                Console.WriteLine(c);
+
+            }
+            Console.WriteLine("\n");
+
+            //8
+            List<String> arr7 = Arr7.ToList();
+            var srtI = Arr7.Where(D => D[1] == 'i').OrderByDescending(D => arr7.IndexOf(D));
+
+            foreach (var c in srtI)
+            {
+                Console.WriteLine(c);
+
             }
             Console.WriteLine("\n");
         }
