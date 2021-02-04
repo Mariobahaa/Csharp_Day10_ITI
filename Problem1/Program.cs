@@ -7,10 +7,6 @@ using System.IO;
 namespace Problem1
 {
 
-    /*
-      CustomerList;
-      ProductList;
-      */
     class Program
     {
         static void Main(string[] args)
@@ -243,10 +239,7 @@ namespace Problem1
             }
            
 
-            //var Result = (from P in ProductList
-            //              let 
-            //              where P.UnitPrice == (ProductList.Min(P => P.UnitPrice))
-            //              select P).First();
+     
             //10
             var longest = dict_en.Max(W => W.Count());
 
@@ -338,8 +331,6 @@ namespace Problem1
             var gfrstlet = dict_en.GroupBy(W => W[0]);
 
 
-            ///////////UNCOMMENT This Section //////////////////////////////////
-/*
             foreach (var c in gfrstlet)
             {
                 foreach (var i in c)
@@ -347,7 +338,7 @@ namespace Problem1
                 Console.WriteLine("######");
             }
             Console.WriteLine("\n");
-*/
+
 
             //3
             string[] Arr5 = { "from   ", " salt", " earn ", "  last   ", " near ", " form  " };
