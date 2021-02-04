@@ -233,6 +233,16 @@ namespace Problem1
 
             //9
 
+            var chpst = from P in ProductList
+                        group P by P.Category into Cat
+                        let cheapest = Cat.Min(P => P.UnitPrice)
+                        select new { Category = Cat.Key, Cheapest = cheapest };
+            foreach (var c in chpst)
+            {
+                Console.WriteLine(c);
+            }
+           
+
             //var Result = (from P in ProductList
             //              let 
             //              where P.UnitPrice == (ProductList.Min(P => P.UnitPrice))
@@ -252,6 +262,15 @@ namespace Problem1
             Console.WriteLine("\n");
 
             //12
+
+            var mstexp = from P in ProductList
+                        group P by P.Category into Cat
+                        let exp = Cat.Max(P => P.UnitPrice)
+                        select new { Category = Cat.Key, MostExpensive = exp };
+            foreach (var c in mstexp)
+            {
+                Console.WriteLine(c);
+            }
 
             //13
             var avg = dict_en.Select(W => W.Count()).Average();
