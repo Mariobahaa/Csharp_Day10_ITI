@@ -320,7 +320,7 @@ namespace Problem1
 
 
             ///////////UNCOMMENT This Section //////////////////////////////////
-
+/*
             foreach (var c in gfrstlet)
             {
                 foreach (var i in c)
@@ -328,7 +328,7 @@ namespace Problem1
                 Console.WriteLine("######");
             }
             Console.WriteLine("\n");
-
+*/
 
             //3
             string[] Arr5 = { "from   ", " salt", " earn ", "  last   ", " near ", " form  " };
@@ -474,6 +474,38 @@ namespace Problem1
                 Console.WriteLine(c);
             }
             Console.WriteLine("\n");
+
+            //5
+            int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
+            int[] numbersB = { 1, 3, 5, 7, 8 };
+
+            //var pairs = numbersA.Select(A => new { a = A, b = numbersB.Select(B => B < A) });
+            /*var pairs = numbersB.Select(B => numbersA.Select(A => B > A)).Select((A,B)=>new { A, B });
+        
+
+            foreach (var c in pairs)
+            {
+                foreach(var )
+                Console.WriteLine(c);
+            }
+            Console.WriteLine("\n");*/
+
+            //6
+            var lessthan500 = CustomerList.SelectMany(C => C.Orders).Where(O => O.Total < 500);
+            foreach (var c in lessthan500)
+            { 
+                    Console.WriteLine(c);
+            }
+            Console.WriteLine("\n");
+
+            //7
+            var after1997 = CustomerList.SelectMany(C => C.Orders).Where(O => O.OrderDate.Year>=1998);
+            foreach (var c in after1997)
+            {
+                Console.WriteLine(c);
+            }
+            Console.WriteLine("\n");
+
         }
 
 

@@ -13,3 +13,4 @@ E:\My Programs\ITIC#\Day10\Problem1\obj\Debug\net5.0\Problem1.dll
 E:\My Programs\ITIC#\Day10\Problem1\obj\Debug\net5.0\ref\Problem1.dll
 E:\My Programs\ITIC#\Day10\Problem1\obj\Debug\net5.0\Problem1.pdb
 E:\My Programs\ITIC#\Day10\Problem1\obj\Debug\net5.0\Problem1.genruntimeconfig.cache
+E:\My Programs\ITIC#\Day10\Problem1\obj\Debug\net5.0\Problem1.csprojAssemblyReference.cache
