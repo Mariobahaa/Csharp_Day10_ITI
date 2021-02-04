@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using static L2O___D09.ListGenerators;
+using System.IO;
 
 namespace Problem1
 {
@@ -202,7 +203,70 @@ namespace Problem1
             Console.WriteLine($"{sm}");
             Console.WriteLine("\n");
 
+            //5
+            string[] dict_en = System.IO.File.ReadAllLines("dictionary_english.txt");
 
+            var ccnt = dict_en.Select(W => W.Count()).Sum();
+
+            Console.WriteLine($"{ccnt}");
+            Console.WriteLine("\n");
+
+            //6
+            var su = ProductList.Sum(P => P.UnitsInStock);
+            Console.WriteLine($"{su}");
+            Console.WriteLine("\n");
+
+
+            //7
+            var shortest = dict_en.Min(W => W.Count());
+
+            Console.WriteLine($"{shortest}");
+            Console.WriteLine("\n");
+
+            //8
+            var cheap = catg.Select(C => C.Min(P => P.UnitPrice));
+            foreach(var c in cheap)
+            {
+                Console.WriteLine(c);
+            }
+            Console.WriteLine("\n");
+
+            //9
+
+            //var Result = (from P in ProductList
+            //              let 
+            //              where P.UnitPrice == (ProductList.Min(P => P.UnitPrice))
+            //              select P).First();
+            //10
+            var longest = dict_en.Max(W => W.Count());
+
+            Console.WriteLine($"{longest}");
+            Console.WriteLine("\n");
+
+            //11
+            var expensive = catg.Select(C => C.Max(P => P.UnitPrice));
+            foreach (var c in expensive)
+            {
+                Console.WriteLine(c);
+            }
+            Console.WriteLine("\n");
+
+            //12
+
+            //13
+            var avg = dict_en.Select(W => W.Count()).Average();
+
+            Console.WriteLine($"{avg}");
+            Console.WriteLine("\n");
+
+
+            //14
+            var avgprice = catg.Select(P => P.Average(P => P.UnitPrice));
+            foreach (var c in avgprice)
+            {
+                Console.WriteLine(c);
+            }
+            Console.WriteLine("\n");
         }
 
 
