@@ -5,7 +5,6 @@ E:\My Programs\ITIC#\Day10\Problem1\bin\Debug\net5.0\Problem1.runtimeconfig.dev.
 E:\My Programs\ITIC#\Day10\Problem1\bin\Debug\net5.0\Problem1.dll
 E:\My Programs\ITIC#\Day10\Problem1\bin\Debug\net5.0\ref\Problem1.dll
 E:\My Programs\ITIC#\Day10\Problem1\bin\Debug\net5.0\Problem1.pdb
-E:\My Programs\ITIC#\Day10\Problem1\obj\Debug\net5.0\Problem1.csprojAssemblyReference.cache
 E:\My Programs\ITIC#\Day10\Problem1\obj\Debug\net5.0\Problem1.GeneratedMSBuildEditorConfig.editorconfig
 E:\My Programs\ITIC#\Day10\Problem1\obj\Debug\net5.0\Problem1.AssemblyInfoInputs.cache
 E:\My Programs\ITIC#\Day10\Problem1\obj\Debug\net5.0\Problem1.AssemblyInfo.cs

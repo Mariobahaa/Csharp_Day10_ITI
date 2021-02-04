@@ -191,7 +191,7 @@ namespace Problem1
 
             //3 
             var catg = ProductList.GroupBy(P => P.Category);
-            var cnt = catg.Select(C => new { category = C.Key, count = C.Count() }) ;
+            var cnt = catg.Select(C => new { category = C.Key, count = C.Count() });
             foreach (var item in cnt)
                 Console.WriteLine($"{item}");
 
@@ -225,7 +225,7 @@ namespace Problem1
 
             //8
             var cheap = catg.Select(C => C.Min(P => P.UnitPrice));
-            foreach(var c in cheap)
+            foreach (var c in cheap)
             {
                 Console.WriteLine(c);
             }
@@ -282,7 +282,7 @@ namespace Problem1
             var oneout = catg.Where(C => C.Any(P => P.UnitsInStock == 0));
             foreach (var c in oneout)
             {
-                foreach(var i in c)
+                foreach (var i in c)
                     Console.WriteLine(i);
                 Console.WriteLine("######");
             }
@@ -320,7 +320,7 @@ namespace Problem1
 
 
             ///////////UNCOMMENT This Section //////////////////////////////////
-            
+
             foreach (var c in gfrstlet)
             {
                 foreach (var i in c)
@@ -328,13 +328,13 @@ namespace Problem1
                 Console.WriteLine("######");
             }
             Console.WriteLine("\n");
-            
+
 
             //3
             string[] Arr5 = { "from   ", " salt", " earn ", "  last   ", " near ", " form  " };
 
             WordsComparer WC = new WordsComparer();
-            var gwords = Arr5.GroupBy(W=>W, WC);
+            var gwords = Arr5.GroupBy(W => W, WC);
 
             foreach (var c in gwords)
             {
@@ -352,7 +352,7 @@ namespace Problem1
             foreach (var c in srtprods)
             {
                 Console.WriteLine(c);
-               
+
             }
             Console.WriteLine("\n");
 
@@ -360,7 +360,7 @@ namespace Problem1
             string[] Arr6 = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
 
             CaseInsensetiveComparer CIC = new CaseInsensetiveComparer();
-            var srtwords = Arr6.OrderBy(W=> W, CIC);
+            var srtwords = Arr6.OrderBy(W => W, CIC);
             foreach (var c in srtwords)
             {
                 Console.WriteLine(c);
@@ -393,7 +393,7 @@ namespace Problem1
             //5
             string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
 
-            var srtwordsBylenCI = words.OrderBy(W => W.Count()).ThenBy(W=> W, CIC);
+            var srtwordsBylenCI = words.OrderBy(W => W.Count()).ThenBy(W => W, CIC);
 
             foreach (var c in srtwordsBylenCI)
             {
@@ -404,7 +404,7 @@ namespace Problem1
 
             //6
 
-            var srtpBCatPrice = ProductList.OrderBy(P=>P.Category).ThenByDescending(P => P.UnitPrice);
+            var srtpBCatPrice = ProductList.OrderBy(P => P.Category).ThenByDescending(P => P.UnitPrice);
             foreach (var c in srtpBCatPrice)
             {
                 Console.WriteLine(c);
@@ -430,6 +430,48 @@ namespace Problem1
             {
                 Console.WriteLine(c);
 
+            }
+            Console.WriteLine("\n");
+
+            //LINQ - Projection Operators
+            Console.WriteLine("LINQ - Projection Operators");
+
+            //1
+            var pnames = ProductList.Select(P => P.ProductName);
+
+            foreach (var c in pnames)
+            {
+                Console.WriteLine(c);
+            }
+            Console.WriteLine("\n");
+
+            //2
+            string[] wordsArr = { "aPPLE", "BlUeBeRrY", "cHeRry" };
+            var wordversions = wordsArr.Select(P => new { Upper = P.ToUpper(), Lower = P.ToLower() });
+
+            foreach (var c in wordversions)
+            {
+                Console.WriteLine(c);
+            }
+            Console.WriteLine("\n");
+
+            //3
+            var prodprops = ProductList.Select(P => new { Price = P.UnitPrice, ID = P.ProductID, Name = P.ProductName });
+
+            foreach (var c in prodprops)
+            {
+                Console.WriteLine(c);
+            }
+            Console.WriteLine("\n");
+
+            //4
+            int[] Arr8 = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            var valEqInd = Arr8.Select((D, i) => D == i);
+
+            foreach (var c in valEqInd)
+            {
+                Console.WriteLine(c);
             }
             Console.WriteLine("\n");
         }
