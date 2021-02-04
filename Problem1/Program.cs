@@ -299,6 +299,45 @@ namespace Problem1
             }
             Console.WriteLine("\n");
 
+            //LINQ - Grouping Operators
+            Console.WriteLine("LINQ - Grouping Operators");
+
+
+            //1
+            var seq = Enumerable.Range(0, 15);
+            var grfive = seq.GroupBy(N => N % 5);
+
+            foreach (var c in grfive)
+            {
+                foreach (var i in c)
+                    Console.WriteLine(i);
+                Console.WriteLine("######");
+            }
+            Console.WriteLine("\n");
+
+            //2
+            var gfrstlet = dict_en.GroupBy(W => W[0]);
+            foreach (var c in gfrstlet)
+            {
+                foreach (var i in c)
+                    Console.WriteLine(i);
+                Console.WriteLine("######");
+            }
+            Console.WriteLine("\n");
+
+            //3
+            string[] Arr5 = { "from   ", " salt", " earn ", "  last   ", " near ", " form  " };
+
+            WordsComparer WC = new WordsComparer();
+            var gwords = Arr5.GroupBy(W=>W, WC);
+
+            foreach (var c in gwords)
+            {
+                foreach (var i in c)
+                    Console.WriteLine(i);
+                Console.WriteLine("######");
+            }
+            Console.WriteLine("\n");
         }
 
 
