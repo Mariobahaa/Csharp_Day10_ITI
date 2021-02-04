@@ -479,16 +479,19 @@ namespace Problem1
             int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
             int[] numbersB = { 1, 3, 5, 7, 8 };
 
-            //var pairs = numbersA.Select(A => new { a = A, b = numbersB.Select(B => B < A) });
-            /*var pairs = numbersB.Select(B => numbersA.Select(A => B > A)).Select((A,B)=>new { A, B });
-        
+            var pairs = from A in numbersA
+                        let B = numbersB
+                        from item in B
+                        where A < item
+                        select A + " is smaller than " + item;
 
             foreach (var c in pairs)
             {
-                foreach(var )
-                Console.WriteLine(c);
+   
+                    Console.WriteLine(c);
             }
-            Console.WriteLine("\n");*/
+            Console.WriteLine("\n");
+
 
             //6
             var lessthan500 = CustomerList.SelectMany(C => C.Orders).Where(O => O.Total < 500);
