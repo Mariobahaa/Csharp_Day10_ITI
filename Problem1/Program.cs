@@ -267,6 +267,38 @@ namespace Problem1
                 Console.WriteLine(c);
             }
             Console.WriteLine("\n");
+
+            //LINQ - Quantifiers
+            Console.WriteLine("LINQ - Quantifiers");
+
+
+            //1
+            bool hasei = dict_en.Any(W => W.Contains("ei"));
+            Console.WriteLine($"{hasei}");
+            Console.WriteLine("\n");
+
+
+            //2
+            var oneout = catg.Where(C => C.Any(P => P.UnitsInStock == 0));
+            foreach (var c in oneout)
+            {
+                foreach(var i in c)
+                    Console.WriteLine(i);
+                Console.WriteLine("######");
+            }
+            Console.WriteLine("\n");
+
+
+            //3
+            var allin = catg.Where(C => C.All(P => P.UnitsInStock > 0));
+            foreach (var c in allin)
+            {
+                foreach (var i in c)
+                    Console.WriteLine(i);
+                Console.WriteLine("######");
+            }
+            Console.WriteLine("\n");
+
         }
 
 
